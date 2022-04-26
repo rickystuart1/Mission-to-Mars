@@ -65,7 +65,3 @@ df.to_html
 
 # Quit browser to keep it from running in the background
 browser.quit()
-
-
-
-
