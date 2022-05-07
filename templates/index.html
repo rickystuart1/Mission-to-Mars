@@ -9,18 +9,19 @@
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
     />
+    <link rel="stylesheet" href="../static/style.css">
   </head>
-  <body>
+  <body style="background-color: rgb(187, 122, 76);">
     <div class="container">
       <!-- Add Jumbotron to Header -->
       <div class="jumbotron text-center">
         <h1>Mission to Mars</h1>
         <!-- Add a button to activate scraping script -->
-        <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
+        <p><a class="btn btn-primary btn-lg" style="background-color: rgba(233, 185, 122, 0.938);" href="/scrape" role="button">Update Mars News!</a></p>
       </div>
 
       <!-- Add section for Mars News -->
-      <div class="row" id="mars-news">
+      <div class="row text-center" id="mars-news">
         <div class="col-md-12">
           <div class="media">
             <div class="media-body">
@@ -33,14 +34,21 @@
       </div>
 
       <!-- Section for Featured Image and Facts table -->
-      <div class="row" id="mars-featured-image">
-        <div class="col-md-8">
+      <div class="row text-center" id="mars-featured-image">
+        <div class="col-md-4">
+          <img 
+          src="../static/simon-lee-hrOXaenH640-unsplash.jpg"
+          class="img-responsive img-fluid rounded"
+          alt="Responsive image">
+        </div>
+
+        <div class="col-md-4">
           <h2>Featured Mars Image</h2>
 
           <!-- if images is False/None/non-existent, then default to error message -->
           <img
             src="{{mars.featured_image | default('static/images/error.png', true) }}"
-            class="img-responsive"
+            class="img-responsive img-fluid rounded"
             alt="Responsive image"
           />
         </div>
@@ -55,16 +63,16 @@
       </div>
 
       <!-- Section for Mars Hemispheres -->
-      <div class="row" id="mars-hemispheres">
+      <div class="row" id="mars-hemispheres" style="background-color: rgb(187, 122, 76);">
         <div class="page-header">
-          <h2 class="text-center">Mars Hemispheres</h2>
+          <h2 class="text-center">Hemispheres of Mars</h2>
         </div>
 
         {% for hemisphere in mars.hemispheres %}
-        <div class="col-md-6">
-          <div class="thumbnail">
+        <div class="col-xs-12 col-md-3">
+          <div class="thumbnail" style="background-color: #c98302;">
             <img src="{{hemisphere.img_url | default('static/images/error.png', true)}}" alt="...">
-            <div class="caption">
+            <div class="caption text-center" style="background-color: rgba(233, 185, 122, 0.938);">
               <h3>{{hemisphere.title}}</h3>
             </div>
           </div>
